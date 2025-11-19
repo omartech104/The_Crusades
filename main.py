@@ -72,31 +72,31 @@ while run:
 
         NPC.check_for_npcs(traveling.current_city, traveling.get_current_tile())
 
-        # Quest triggers
-        quest_triggers = [
-            ("Paris", "Cathedral", "Lost Relic"),
-            ("Cairo", "Bazaar", "Missing Ring"),
-            ("London", "Docks", "Smuggled Goods"),
-            ("London", "Crossroad", "Crossroad Ambush"),
-            ("London", "Castle", "Castle Intruder"),
-            ("Paris", "Tavern", "Tavern Brawl"),
-            ("Paris", "Gatehouse", "Gatehouse Thief"),
-            ("Paris", "Cathedral", "Defender of the Faith"),
-            ("Cairo", "Oasis", "Oasis Raid"),
-            ("Cairo", "Citadel", "Citadel Intrigue"),
-            ("Cairo", "Bazaar", "Bazaar Pickpocket"),
-            ("London", "Crossroad", "Highway Robbery"),
-            ("London", "Docks", "Stolen Cargo"),
-            ("London", "Castle", "Knight’s Oath"),
-            ("Paris", "Tavern", "Drunken Raiders"),
-            ("Paris", "Gatehouse", "City Gate Break-in"),
-            ("Cairo", "Oasis", "Desert Justice")
-        ]
-
-        for city, tile, quest_name in quest_triggers:
-            if (traveling.current_city, traveling.get_current_tile()) == (city, tile):
-                start_quest(quest_name)
-
+        # # Quest triggers
+        # quest_triggers = [
+        #     ("Paris", "Cathedral", "Lost Relic"),
+        #     ("Cairo", "Bazaar", "Missing Ring"),
+        #     ("London", "Docks", "Smuggled Goods"),
+        #     ("London", "Crossroad", "Crossroad Ambush"),
+        #     ("London", "Castle", "Castle Intruder"),
+        #     ("Paris", "Tavern", "Tavern Brawl"),
+        #     ("Paris", "Gatehouse", "Gatehouse Thief"),
+        #     ("Paris", "Cathedral", "Defender of the Faith"),
+        #     ("Cairo", "Oasis", "Oasis Raid"),
+        #     ("Cairo", "Citadel", "Citadel Intrigue"),
+        #     ("Cairo", "Bazaar", "Bazaar Pickpocket"),
+        #     ("London", "Crossroad", "Highway Robbery"),
+        #     ("London", "Docks", "Stolen Cargo"),
+        #     ("London", "Castle", "Knight’s Oath"),
+        #     ("Paris", "Tavern", "Drunken Raiders"),
+        #     ("Paris", "Gatehouse", "City Gate Break-in"),
+        #     ("Cairo", "Oasis", "Desert Justice")
+        # ]
+        #
+        # for city, tile, quest_name in quest_triggers:
+        #     if (traveling.current_city, traveling.get_current_tile()) == (city, tile):
+        #         start_quest(quest_name)
+        #
         draw()
         console.print()
         draw()

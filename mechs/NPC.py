@@ -1,68 +1,158 @@
 import random
 
+from rich.console import Console
+
+console = Console()
+
+
 class NPC:
     def __init__(self, gender, name, city, location):
         self.gender = gender
         self.name = name
-        self.city = city        # City NPC belongs to
+        self.city = city  # City NPC belongs to
         self.location = location  # Specific landmark or tile
 
     def message_to_player(self, msg=None):
         if not msg:
-            msg = random.choice([
-                "Welcome, traveler—may your journey be blessed.",
-                "Good day to you. Have you heard news from London?",
-                "The roads are long and dangers many; stay sharp.",
-                "If went to Paris alive, Beware from the 'Guardian Of Shifts'",
-                "They say that 'Guardian of Shifts' is prisoned in the Cathedral",
-                "I barter in secrets as well as goods—what do you seek?",
-                "They say the Pyramids glow at dusk. Have you seen them?",
-                "Be strong. Fortune favors the bold.",
-                "Spare some coin? A small donation for a hungry soul.",
-                "The Templars passed through here yesterday. Rumors follow.",
-                "Your weapon looks worn. Might be time for a new blade.",
-                "A loaf of bread is more precious than gold when hungry.",
-                "Drink this wine by candlelight—it soothes the heart.",
-                "Books hold power. Read, learn, you’ll survive longer.",
-                "Music in the tavern tonight—come join if you can handle the ale.",
-                "May your shields hold, and your blade stay sharp.",
-                "'Guardian of Shifts' knows the word that will open the hidden chest",
-                "Yesterday’s storms destroyed the bridge outside town.",
-                "If you help a stranger, the god will help you in return.",
-                "Rumors tell that there's a riddle that wasn't solved till now",
-                "Beware the bandits at dusk—they know every winding path.",
-                "Even the simplest traveler has tales to share.",
-                "Let me tell you of the old wars and the ghosts they left behind."
-
-            ])
-        print(f"{self.name} ({self.gender}) at {self.location}, {self.city}: {msg}")
+            msg = random.choice(
+                [
+                    "Welcome, traveler—may your journey be blessed.",
+                    "Good day to you. Have you heard news from London?",
+                    "The roads are long and dangers many; stay sharp.",
+                    "If went to Paris alive, Beware from the 'Guardian Of Shifts'",
+                    "They say that 'Guardian of Shifts' is prisoned in the Cathedral",
+                    "I barter in secrets as well as goods—what do you seek?",
+                    "They say the Pyramids glow at dusk. Have you seen them?",
+                    "Be strong. Fortune favors the bold.",
+                    "Spare some coin? A small donation for a hungry soul.",
+                    "The Templars passed through here yesterday. Rumors follow.",
+                    "Your weapon looks worn. Might be time for a new blade.",
+                    "A loaf of bread is more precious than gold when hungry.",
+                    "Drink this wine by candlelight—it soothes the heart.",
+                    "Books hold power. Read, learn, you’ll survive longer.",
+                    "Music in the tavern tonight—come join if you can handle the ale.",
+                    "May your shields hold, and your blade stay sharp.",
+                    "'Guardian of Shifts' knows the word that will open the hidden chest",
+                    "Yesterday’s storms destroyed the bridge outside town.",
+                    "If you help a stranger, the god will help you in return.",
+                    "Rumors tell that there's a riddle that wasn't solved till now",
+                    "Beware the bandits at dusk—they know every winding path.",
+                    "Even the simplest traveler has tales to share.",
+                    "Let me tell you of the old wars and the ghosts they left behind.",
+                ]
+            )
+        console.print(
+            f"[cyan]{self.name}[/cyan] "
+            f"([magenta]{self.gender}[/magenta]) "
+            f"at [yellow]{self.location}[/yellow], "
+            f"[green]{self.city}[/green]: "
+            f"[white]{msg}[/white]"
+        )
 
 
 # Names
 female_names = [
-    "Adelaide","Beatrice","Cecilia","Eleanor","Isolde",
-    "Matilda","Rosalind","Margery","Clarissa","Sibyl",
-    "Christiana","Aveline","Emmeline","Isabella","Joan",
-    "Agnes","Alice","Amice","Constance","Gisela",
-    "Helena","Juliana","Lucia","Melisende","Philippa",
-    "Rowena","Seraphina","Theodora","Yolande","Brunhild"
+    "Adelaide",
+    "Beatrice",
+    "Cecilia",
+    "Eleanor",
+    "Isolde",
+    "Matilda",
+    "Rosalind",
+    "Margery",
+    "Clarissa",
+    "Sibyl",
+    "Christiana",
+    "Aveline",
+    "Emmeline",
+    "Isabella",
+    "Joan",
+    "Agnes",
+    "Alice",
+    "Amice",
+    "Constance",
+    "Gisela",
+    "Helena",
+    "Juliana",
+    "Lucia",
+    "Melisende",
+    "Philippa",
+    "Rowena",
+    "Seraphina",
+    "Theodora",
+    "Yolande",
+    "Brunhild",
 ]
 
 male_names = [
-    "Alaric","Baldwin","Cedric","Godfrey","Leofric",
-    "Oswald","Roland","Geoffrey","Hugh","William",
-    "Richard","Robert","Edmund","Harold","Thomas",
-    "Anselm","Bartholomew","Berengar","Charles","Eustace",
-    "Frederick","Gerard","Hubert","Lambert","Louis",
-    "Odo","Percival","Ranulf","Simon","Walter"
+    "Alaric",
+    "Baldwin",
+    "Cedric",
+    "Godfrey",
+    "Leofric",
+    "Oswald",
+    "Roland",
+    "Geoffrey",
+    "Hugh",
+    "William",
+    "Richard",
+    "Robert",
+    "Edmund",
+    "Harold",
+    "Thomas",
+    "Anselm",
+    "Bartholomew",
+    "Berengar",
+    "Charles",
+    "Eustace",
+    "Frederick",
+    "Gerard",
+    "Hubert",
+    "Lambert",
+    "Louis",
+    "Odo",
+    "Percival",
+    "Ranulf",
+    "Simon",
+    "Walter",
 ]
 
 
 # Landmarks per city
 city_landmarks = {
-    "London": ["Market", "Castle", "Tower", "Bridge", "Docks", "Gatehouse", "Crossroad", "Road"],
-    "Paris": ["Market", "Cathedral", "Louvre", "Tavern", "Gatehouse", "Inn", "Crossroad", "Road"],
-    "Cairo": ["Bazaar", "Pyramids", "Mosque", "Citadel", "Oasis", "Caravanserai", "Crossroad", "Road"]
+    "London": [
+        "London",
+        "Market",
+        "Castle",
+        "Tower",
+        "Bridge",
+        "Docks",
+        "Gatehouse",
+        "Crossroad",
+        "Road",
+    ],
+    "Paris": [
+        "Paris",
+        "Market",
+        "Cathedral",
+        "Louvre",
+        "Tavern",
+        "Gatehouse",
+        "Inn",
+        "Crossroad",
+        "Road",
+    ],
+    "Cairo": [
+        "Cairo",
+        "Bazaar",
+        "Pyramids",
+        "Mosque",
+        "Citadel",
+        "Oasis",
+        "Caravanserai",
+        "Crossroad",
+        "Road",
+    ],
 }
 
 # Weighted spawn rates → Markets & Inns busier
@@ -86,7 +176,7 @@ landmark_weights = {
     "Pyramids": 3,
     "Cairo": 5,
     "London": 5,
-    "Paris": 5
+    "Paris": 5,
 }
 
 
@@ -112,11 +202,12 @@ for city, landmarks in city_landmarks.items():
 # Function to check NPCs
 def check_for_npcs(current_city, current_tile):
     """Check if NPCs are in the player's current location."""
-    npcs_here = [npc for npc in npc_list if npc.city == current_city and npc.location == current_tile]
+    npcs_here = [
+        npc for npc in npc_list if npc.city == current_city and npc.location == current_tile
+    ]
     if npcs_here:
-        print(f"\nYou see {len(npcs_here)} person(s) here:")
+        console.print(f"\nYou see [yellow]{len(npcs_here)}[/yellow] person(s) here:")
         for npc in npcs_here:
             npc.message_to_player()
     else:
-        print("\nNo one is here.")
-
+        console.print("[dim]\nNo one is here.[/dim]")

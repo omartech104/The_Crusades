@@ -6,8 +6,8 @@ from mechs import fighting, shopping, inventory
 from .puzzles import cipher
 
 # Boss stats
-boss_hp = 1500
-boss_attack = (50, 390)  # random attack range
+boss_hp = 3000
+boss_attack = [50, 390]  # random attack range
 equipped_weapon = None
 equipped_damage = 50  # fists by default
 defeated = False  # ✅ track boss defeat state
@@ -115,6 +115,10 @@ def fight_cathedral_boss():
                 console.print("\n[bold red]You were slain by the Cathedral Guardian...[/bold red]")
                 defeated = False
                 return
+            if boss_hp <= 1500:
+                boss_attack[0] = 10
+                boss_attack[1] = 390
+
 
     # 🏆 Victory
     if boss_hp <= 0:

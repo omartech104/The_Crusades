@@ -1,6 +1,6 @@
 from mechs import cathedral_boss
 from .puzzles import riddle
-
+from rich.console import Console
 # --- Maps ---
 
 symbols = {
@@ -315,67 +315,66 @@ def move(direction: str):
         return "You cannot go that way."
 
 
+from rich.console import Console
+from rich.text import Text
+
+console = Console()
+
 def fast_travel():
     global player_pos
-    print("Travel to any landmark")
-    if current_city == "London":
-        for i,landmark in enumerate(london_landmarks):
-            print(f"{i} - {landmark['name']}")
-        landmark_num = input("Type the number of the Landmark: ")
-        for i,landmark in enumerate(london_landmarks):
-            if i == int(landmark_num):
-                row, col = player_pos
-                new_pos = landmark["coords"]
-                player_pos = new_pos
-                print(player_pos)
-                print(f"You moved to {get_location_name()}.")
-    elif current_city == "Paris":
-        for i,landmark in enumerate(paris_landmarks):
-            print(f"{i} - {landmark['name']}")
-        landmark_num = input("Type the number of the Landmark: ")
-        for i,landmark in enumerate(paris_landmarks):
-            if i == int(landmark_num):
-                row, col = player_pos
-                new_pos = landmark["coords"]
-                player_pos = new_pos
-                print(player_pos)
-                print(f"You moved to {get_location_name()}.")
-    elif current_city == "Cairo":
-        for i,landmark in enumerate(cairo_landmarks):
-            print(f"{i} - {landmark['name']}")
+    console.print("[bold cyan]Travel to any landmark[/bold cyan]")
 
-        landmark_num = input("Type the number of the Landmark: ")
-        for i,landmark in enumerate(cairo_landmarks):
+    if current_city == "London":
+        for i, landmark in enumerate(london_landmarks):
+            console.print(f"[yellow]{i}[/yellow] - [green]{landmark['name']}[/green]")
+        landmark_num = console.input("[bold magenta]Type the number of the Landmark: [/bold magenta]")
+        for i, landmark in enumerate(london_landmarks):
             if i == int(landmark_num):
-                row, col = player_pos
-                new_pos = landmark["coords"]
-                player_pos = new_pos
-                print(player_pos)
-                print(f"You moved to {get_location_name()}.")
+                player_pos = landmark["coords"]
+                console.print(f"[bold green]You moved to [cyan]{get_location_name()}[/cyan].[/bold green]")
+
+    elif current_city == "Paris":
+        for i, landmark in enumerate(paris_landmarks):
+            console.print(f"[yellow]{i}[/yellow] - [green]{landmark['name']}[/green]")
+        landmark_num = console.input("[bold magenta]Type the number of the Landmark: [/bold magenta]")
+        for i, landmark in enumerate(paris_landmarks):
+            if i == int(landmark_num):
+                player_pos = landmark["coords"]
+                console.print(f"[bold green]You moved to [cyan]{get_location_name()}[/cyan].[/bold green]")
+
+    elif current_city == "Cairo":
+        for i, landmark in enumerate(cairo_landmarks):
+            console.print(f"[yellow]{i}[/yellow] - [green]{landmark['name']}[/green]")
+        landmark_num = console.input("[bold magenta]Type the number of the Landmark: [/bold magenta]")
+        for i, landmark in enumerate(cairo_landmarks):
+            if i == int(landmark_num):
+                player_pos = landmark["coords"]
+                console.print(f"[bold green]You moved to [cyan]{get_location_name()}[/cyan].[/bold green]")
+
     elif current_city == "Prague":
         for i, landmark in enumerate(prague_landmarks):
-            print(f"{i} - {landmark['name']}")
-        landmark_num = input("Type the number of the Landmark: ")
+            console.print(f"[yellow]{i}[/yellow] - [green]{landmark['name']}[/green]")
+        landmark_num = console.input("[bold magenta]Type the number of the Landmark: [/bold magenta]")
         for i, landmark in enumerate(prague_landmarks):
             if i == int(landmark_num):
                 player_pos = landmark["coords"]
-                print(f"You moved to {get_location_name()}.")
+                console.print(f"[bold green]You moved to [cyan]{get_location_name()}[/cyan].[/bold green]")
 
     elif current_city == "Venice":
         for i, landmark in enumerate(venice_landmarks):
-            print(f"{i} - {landmark['name']}")
-        landmark_num = input("Type the number of the Landmark: ")
+            console.print(f"[yellow]{i}[/yellow] - [green]{landmark['name']}[/green]")
+        landmark_num = console.input("[bold magenta]Type the number of the Landmark: [/bold magenta]")
         for i, landmark in enumerate(venice_landmarks):
             if i == int(landmark_num):
                 player_pos = landmark["coords"]
-                print(f"You moved to {get_location_name()}.")
+                console.print(f"[bold green]You moved to [cyan]{get_location_name()}[/cyan].[/bold green]")
 
     elif current_city == "Tours":
         for i, landmark in enumerate(tours_landmarks):
-            print(f"{i} - {landmark['name']}")
-        landmark_num = input("Type the number of the Landmark: ")
+            console.print(f"[yellow]{i}[/yellow] - [green]{landmark['name']}[/green]")
+        landmark_num = console.input("[bold magenta]Type the number of the Landmark: [/bold magenta]")
         for i, landmark in enumerate(tours_landmarks):
             if i == int(landmark_num):
                 player_pos = landmark["coords"]
-                print(f"You moved to {get_location_name()}.")
+                console.print(f"[bold green]You moved to [cyan]{get_location_name()}[/cyan].[/bold green]")
 
