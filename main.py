@@ -1,15 +1,26 @@
 import os
 import sys
+
 from rich.console import Console
-from rich.text import Text
 from rich.panel import Panel
+from rich.text import Text
 
 console = Console()
 
-from mechs import NPC, ascii_art, badges, fighting, inventory, quest, shopping, traveling
+from mechs import (
+    NPC,
+    ascii_art,
+    badges,
+    fighting,
+    inventory,
+    quest,
+    shopping,
+    traveling,
+)
 from mechs.quest import start_quest
 
 pltform = sys.platform
+
 
 # Clear screen based on OS
 def clear_screen():
@@ -18,22 +29,31 @@ def clear_screen():
     elif pltform == "win32":
         os.system("cls")
 
+
 run = True
 menu = True
 play = False
 rules = False
 
+
 def draw():
     console.print("[bold cyan]xX--------------------xX[/bold cyan]")
 
+
 def print_menu():
-    console.print(Panel.fit("[bold yellow]1.[/bold yellow] Travel to another city\n"
-                            "[bold yellow]2.[/bold yellow] Go to the Center of city\n"
-                            "[bold yellow]3.[/bold yellow] Visit the shop\n"
-                            "[bold yellow]4.[/bold yellow] Move inside the city (N/S/E/W/Fast-travel)\n"
-                            "[bold yellow]5.[/bold yellow] Open inventory\n"
-                            "[bold yellow]6.[/bold yellow] View badges\n"
-                            "[bold yellow]7.[/bold yellow] Quit to Menu", title=f"[bold magenta]{traveling.current_city} Menu[/bold magenta]"))
+    console.print(
+        Panel.fit(
+            "[bold yellow]1.[/bold yellow] Travel to another city\n"
+            "[bold yellow]2.[/bold yellow] Go to the Center of city\n"
+            "[bold yellow]3.[/bold yellow] Visit the shop\n"
+            "[bold yellow]4.[/bold yellow] Move inside the city (N/S/E/W/Fast-travel)\n"
+            "[bold yellow]5.[/bold yellow] Open inventory\n"
+            "[bold yellow]6.[/bold yellow] View badges\n"
+            "[bold yellow]7.[/bold yellow] Quit to Menu",
+            title=f"[bold magenta]{traveling.current_city} Menu[/bold magenta]",
+        )
+    )
+
 
 while run:
     while menu:
@@ -116,13 +136,20 @@ while run:
                 traveling.current_city = destination
 
                 # Update map and player position based on city
-                city_positions = {"London": (traveling.london_map, (2, 3)),
-                                  "Paris": (traveling.paris_map, (2, 3)),
-                                  "Cairo": (traveling.cairo_map, (2, 3))}
+                city_positions = {
+                    "London": (traveling.london_map, (2, 3)),
+                    "Paris": (traveling.paris_map, (2, 3)),
+                    "Cairo": (traveling.cairo_map, (2, 3)),
+                    "Prague": (traveling.prague_map, (2, 3)),
+                    "Venice": (traveling.venice_map, (2, 3)),
+                    "Tours": (traveling.tours_map, (2, 3)),  # <-- add this line
+                }
                 traveling.current_map, traveling.player_pos = city_positions[destination]
 
                 console.print(f"[bold magenta]You have traveled to {destination}.[/bold magenta]")
-                view_map = console.input(f"Do you want to view [bold yellow]{destination}[/bold yellow]'s map (y/n) ")
+                view_map = console.input(
+                    f"Do you want to view [bold yellow]{destination}[/bold yellow]'s map (y/n) "
+                )
                 if view_map.lower() == "y":
                     draw()
                     for row in traveling.current_map:
@@ -160,12 +187,19 @@ while run:
 
                 quest_enemy_fought = False
                 for q_name in quest.quests.keys():
-                    enemy_name = quest.trigger_quest_enemy(q_name, traveling.current_city, traveling.get_current_tile())
+                    enemy_name = quest.trigger_quest_enemy(
+                        q_name, traveling.current_city, traveling.get_current_tile()
+                    )
                     if enemy_name:
                         enemy_obj = fighting.Enemy(enemy_name)
                         defeated_enemy, looted_items = fighting.combat(enemy_obj)
-                        quest.check_quest_progress(q_name, traveling.current_city, traveling.get_current_tile(),
-                                                   defeated_enemy, looted_items)
+                        quest.check_quest_progress(
+                            q_name,
+                            traveling.current_city,
+                            traveling.get_current_tile(),
+                            defeated_enemy,
+                            looted_items,
+                        )
                         quest_enemy_fought = True
                         break
 
@@ -173,8 +207,13 @@ while run:
                     defeated_enemy, looted_items = fighting.check_for_enemy()
                     if defeated_enemy:
                         for q_name in quest.quests.keys():
-                            quest.check_quest_progress(q_name, traveling.current_city, traveling.get_current_tile(),
-                                                       defeated_enemy, looted_items)
+                            quest.check_quest_progress(
+                                q_name,
+                                traveling.current_city,
+                                traveling.get_current_tile(),
+                                defeated_enemy,
+                                looted_items,
+                            )
 
             elif direction == "F":
                 traveling.fast_travel()
@@ -195,4 +234,3 @@ while run:
         elif action == "7":
             play = False
             menu = True
-

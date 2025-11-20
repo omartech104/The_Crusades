@@ -43,6 +43,35 @@ symbols = {
     "Bridge": "X"      # but Bazaar already B → make Bridge = "X"
 }
 
+# Tours landmarks
+symbols.update({
+    "Clock Tower Of Tours": "T",
+    "Pont Wilson": "X",
+    "Chateau De Tours": "C",
+    "St.Gatien Cathedral": "G",
+    "Loire Gate": "L",
+    "Pilgrims Inn": "I"
+})
+
+# Prague landmarks
+symbols.update({
+    "Old Town Hall": "H",
+    "Charles Bridge": "B",
+    "Hradčany Castle": "K",
+    "St.Vitus Cathedral": "V",
+    "Powder Gate": "P",
+    "GoldenLane Inn": "I"
+})
+
+# Venice landmarks
+symbols.update({
+    "Arsenale": "A",
+    "Rialto Bridge": "R",
+    "Doge Palace": "D",
+    "St.Marks Basilica": "S",
+    "Porta Da Mare": "M",
+    "Sailors Inn": "I"
+})
 
 # London Map (7x7)
 london_map = [
@@ -77,39 +106,35 @@ cairo_map = [
     ["Road", "Road", "Road", "Crossroad", "Road", "Road", "Road"]
 ]
 
-# Prague Map
 prague_map = [
     ["Road", "Road", "Road", "Crossroad", "Road", "Road", "Road"],
-    ["Road", "Tower", "Road", "Road", "Road", "Market", "Bridge"],
+    ["Road", "Old Town Hall", "Road", "Road", "Road", "Market", "Charles Bridge"],
     ["Road", "Road", "Crossroad", "Prague", "Crossroad", "Road", "Road"],
-    ["Road", "Castle", "Road", "Crossroad", "Road", "Cathedral", "Road"],
+    ["Road", "Hradčany Castle", "Road", "Crossroad", "Road", "St.Vitus Cathedral", "Road"],
     ["Road", "Road", "Road", "Crossroad", "Road", "Road", "Road"],
-    ["Road", "Gatehouse", "Road", "Road", "Road", "Inn", "Road"],
+    ["Road", "Powder Gate", "Road", "Road", "Road", "GoldenLane Inn", "Road"],
     ["Road", "Road", "Road", "Crossroad", "Road", "Road", "Road"]
 ]
 
-# Venice Map
 venice_map = [
     ["Road", "Road", "Road", "Crossroad", "Road", "Road", "Road"],
-    ["Road", "Docks", "Road", "Road", "Road", "Market", "Bridge"],
+    ["Road", "Arsenale", "Road", "Road", "Road", "Market", "Rialto Bridge"],
     ["Road", "Road", "Crossroad", "Venice", "Crossroad", "Road", "Road"],
-    ["Road", "Palazzo", "Road", "Crossroad", "Road", "Cathedral", "Road"],
+    ["Road", "Doge Palace", "Road", "Crossroad", "Road", "St.Marks Basilica", "Road"],
     ["Road", "Road", "Road", "Crossroad", "Road", "Road", "Road"],
-    ["Road", "Gatehouse", "Road", "Road", "Road", "Inn", "Road"],
+    ["Road", "Porta Da Mare", "Road", "Road", "Road", "Sailors Inn", "Road"],
     ["Road", "Road", "Road", "Crossroad", "Road", "Road", "Road"]
 ]
 
-# Tours Map
 tours_map = [
     ["Road", "Road", "Road", "Crossroad", "Road", "Road", "Road"],
-    ["Road", "Tower", "Road", "Road", "Road", "Market", "Bridge"],
+    ["Road", "Clock Tower Of Tours", "Road", "Road", "Road", "Market", "Pont Wilson"],
     ["Road", "Road", "Crossroad", "Tours", "Crossroad", "Road", "Road"],
-    ["Road", "Castle", "Road", "Crossroad", "Road", "Cathedral", "Road"],
+    ["Road", "Chateau De Tours", "Road", "Crossroad", "Road", "St.Gatien Cathedral", "Road"],
     ["Road", "Road", "Road", "Crossroad", "Road", "Road", "Road"],
-    ["Road", "Gatehouse", "Road", "Road", "Road", "Inn", "Road"],
+    ["Road", "Loire Gate", "Road", "Road", "Road", "Pilgrims Inn", "Road"],
     ["Road", "Road", "Road", "Crossroad", "Road", "Road", "Road"]
 ]
-
 
 london_landmarks = [
     {"name": "Tower", "coords": (1, 2)},
@@ -141,34 +166,37 @@ cairo_landmarks = [
 ]
 
 prague_landmarks = [
-    {"name": "Tower", "coords": (1, 1)},
-    {"name": "Bridge", "coords": (1, 6)},
+    {"name": "Old Town Hall", "coords": (1, 1)},
+    {"name": "Charles Bridge", "coords": (1, 6)},
     {"name": "Prague", "coords": (2, 3)},
-    {"name": "Castle", "coords": (3, 1)},
-    {"name": "Cathedral", "coords": (3, 5)},
-    {"name": "Gatehouse", "coords": (5, 1)},
-    {"name": "Inn", "coords": (5, 5)}
+    {"name": "Hradčany Castle", "coords": (3, 1)},
+    {"name": "St.Vitus Cathedral", "coords": (3, 5)},
+    {"name": "Powder Gate", "coords": (5, 1)},
+    {"name": "GoldenLane Inn", "coords": (5, 5)}
 ]
+
 
 venice_landmarks = [
-    {"name": "Docks", "coords": (1, 1)},
-    {"name": "Bridge", "coords": (1, 6)},
+    {"name": "Arsenale", "coords": (1, 1)},
+    {"name": "Rialto Bridge", "coords": (1, 6)},
     {"name": "Venice", "coords": (2, 3)},
-    {"name": "Palazzo", "coords": (3, 1)},
-    {"name": "Cathedral", "coords": (3, 5)},
-    {"name": "Gatehouse", "coords": (5, 1)},
-    {"name": "Inn", "coords": (5, 5)}
+    {"name": "Doge Palace", "coords": (3, 1)},
+    {"name": "St.Marks Basilica", "coords": (3, 5)},
+    {"name": "Porta Da Mare", "coords": (5, 1)},
+    {"name": "Sailors Inn", "coords": (5, 5)}
 ]
 
+
 tours_landmarks = [
-    {"name": "Tower", "coords": (1, 1)},
-    {"name": "Bridge", "coords": (1, 6)},
+    {"name": "Clock Tower Of Tours", "coords": (1, 1)},
+    {"name": "Pont Wilson", "coords": (1, 6)},
     {"name": "Tours", "coords": (2, 3)},
-    {"name": "Castle", "coords": (3, 1)},
-    {"name": "Cathedral", "coords": (3, 5)},
-    {"name": "Gatehouse", "coords": (5, 1)},
-    {"name": "Inn", "coords": (5, 5)}
+    {"name": "Chateau De Tours", "coords": (3, 1)},
+    {"name": "St.Gatien Cathedral", "coords": (3, 5)},
+    {"name": "Loire Gate", "coords": (5, 1)},
+    {"name": "Pilgrims Inn", "coords": (5, 5)}
 ]
+
 
 
 # Starting location
@@ -182,15 +210,18 @@ def get_location_name():
     row, col = player_pos
     tile = current_map[row][col]
 
-    # Generic descriptions for roads and crossroads
+    # Generic road and crossroad descriptions
     if tile == "Road":
-        if current_city == "London":
-            return "a cobblestone road, damp from the English mist"
-        elif current_city == "Paris":
-            return "a narrow stone road, echoing with footsteps"
-        elif current_city == "Cairo":
-            return "a sandy path, warm under the desert sun"
-    elif tile == "Crossroad":
+        return {
+            "London": "a cobblestone road, damp from the English mist",
+            "Paris": "a narrow stone road, echoing with footsteps",
+            "Cairo": "a sandy path, warm under the desert sun",
+            "Prague": "a cobbled street lined with gothic buildings",
+            "Venice": "a narrow alley between canal-side buildings",
+            "Tours": "a stone-paved street bustling with townsfolk"
+        }.get(current_city, "a simple path")
+    
+    if tile == "Crossroad":
         return "a busy crossroad where paths meet"
 
     # Landmark descriptions
@@ -207,8 +238,6 @@ def get_location_name():
         "Louvre": "The Louvre, a palace of kings and art",
         "Tavern": "A lively tavern, filled with laughter and wine",
         "Cathedral": "The great cathedral, its bells tolling",
-        "Market": "Parisian market stalls with spices and fabrics",
-        "Gatehouse": "The old gatehouse at the edge of Paris",
         "Inn": "A modest inn for weary travelers",
 
         # Cairo
@@ -217,19 +246,47 @@ def get_location_name():
         "Pyramids": "The great pyramids, ancient and timeless",
         "Citadel": "The Citadel, standing proud over Cairo",
         "Oasis": "A small oasis, refreshing and green",
-        "Caravanserai": "A caravanserai where travelers rest"
+        "Caravanserai": "A caravanserai where travelers rest",
+
+        # Prague
+        "Old Town Hall": "The Old Town Hall, its gothic spire rising above the square",
+        "Charles Bridge": "A historic stone bridge over the Vltava River, adorned with statues",
+        "Hradčany Castle": "Hradčany Castle, seat of royalty with towering walls",
+        "St.Vitus Cathedral": "St. Vitus Cathedral, majestic with intricate gothic windows",
+        "Powder Gate": "The Powder Gate, an ancient city gate guarding the entrance",
+        "GoldenLane Inn": "A small inn with colorful houses, once home to castle craftsmen",
+
+        # Venice
+        "Arsenale": "The Venetian Arsenale, a massive shipyard where war galleys are built",
+        "Rialto Bridge": "The Rialto Bridge, crossing the Grand Canal and crowded with merchants",
+        "Doge Palace": "The Doge's Palace, adorned with gilded halls and ornate windows",
+        "St.Marks Basilica": "St. Mark's Basilica, with golden mosaics and soaring domes",
+        "Porta Da Mare": "The Sea Gate, guarding Venice from intruders by the lagoon",
+        "Sailors Inn": "A quaint inn favored by sailors docking in the canals",
+
+        # Tours
+        "Clock Tower Of Tours": "A medieval clock tower, visible from across the town",
+        "Pont Wilson": "An old stone bridge crossing the Loire River",
+        "Chateau De Tours": "The Chateau de Tours, an imposing castle overlooking the river",
+        "St.Gatien Cathedral": "The Gothic St. Gatien Cathedral, its stained glass glowing in the sun",
+        "Loire Gate": "The Loire Gate, once guarding the approach from the river",
+        "Pilgrims Inn": "A welcoming inn for pilgrims traveling the Loire valley",
     }
 
     if tile in landmark_descriptions:
         return landmark_descriptions[tile]
 
     # City centers
-    if tile in ["London", "Paris", "Cairo"]:
-        return f"the heart of {tile}, filled with life and activity"
-        
-    # Default
-    return tile
+    city_centers = {
+        "London": "the heart of London, filled with life and activity",
+        "Paris": "the heart of Paris, bustling with merchants and townsfolk",
+        "Cairo": "the center of Cairo, alive with desert trade",
+        "Prague": "the heart of Prague, lively with merchants and townsfolk",
+        "Venice": "the center of Venice, canals winding between tall palaces",
+        "Tours": "the bustling town center of Tours, alive with trade and people"
+    }
 
+    return city_centers.get(tile, tile)
 
 def get_current_tile():
     row, col = player_pos
@@ -240,13 +297,12 @@ def get_tile_description():
     row, col = player_pos
     tile = current_map[row][col]
 
-    # Paris Cathedral event
-    if tile == "Cathedral" and current_city == "Paris" and cathedral_boss.defeated == False:
+    # Special events
+    if tile == "Cathedral" and current_city == "Paris" and not cathedral_boss.defeated:
         print("You step into the grand Paris Cathedral...")
         cathedral_boss.fight_cathedral_boss()
         return "The Cathedral stands tall, silent after the battle."
 
-    # Cairo Citadel event
     if tile == "Citadel" and current_city == "Cairo":
         if not riddle.solved:
             print("You arrive at the mighty Cairo Citadel...")
@@ -260,35 +316,49 @@ def get_tile_description():
         "Market": {
             "London": "You are now in London Market, filled with goods and merchants.",
             "Paris": "You are now in Parisian market stalls with spices and fabrics.",
-            "Cairo": "You are now in Cairo Bazaar, bustling with traders and colors."
+            "Cairo": "You are now in Cairo Bazaar, bustling with traders and colors.",
+            "Prague": "The Prague market, bustling with Bohemian goods and traders.",
+            "Venice": "Venetian market stalls, filled with exotic spices and silk.",
+            "Tours": "The Tours market, with local cheeses, wines, and crafts."
         },
         "Castle": {
             "London": "You are in the grand London Castle.",
             "Paris": "You are in the fortified Paris Castle.",
-            "Cairo": "You are in the historic Cairo Citadel."
+            "Cairo": "You are in the historic Cairo Citadel.",
+            "Prague": "You are in Hradčany Castle, seat of royalty.",
+            "Venice": "You are in the Doge's Palace, majestic and ornate.",
+            "Tours": "You are in the Chateau de Tours, overlooking the Loire River."
         },
         "Tower": {
             "London": "You stand near the tall Tower of London.",
             "Paris": "Near the iconic Paris Tower.",
-            "Cairo": "Near the ancient Cairo Tower."
+            "Cairo": "Near the ancient Cairo Tower.",
+            "Prague": "The Old Town Hall clock tower dominates the square.",
+            "Tours": "You stand by the Clock Tower Of Tours."
         },
-        "Bridge": {"London": "You are on London Bridge.", "Paris": "You are on the Seine bridge.", "Cairo": "Crossing the Nile bridge."},
-        "Docks": {"London": "You are at London Docks.", "Paris": "At the port of Paris.", "Cairo": "At Cairo river docks."},
-        "Gatehouse": {"London": "At London Gatehouse.", "Paris": "At Paris Gatehouse.", "Cairo": "At Cairo Gatehouse."},
-        "Bazaar": {"Cairo": "Cairo Bazaar is bustling with traders and spices."},
-        "Cathedral": {"Paris": "You are inside the Paris Cathedral."},
-        "Louvre": {"Paris": "You are in the Louvre Museum."},
-        "Pyramids": {"Cairo": "The Pyramids tower over you."},
-        "Citadel": {"Cairo": "You are in the mighty Cairo Citadel."},
-        "Crossroad": {"London": "You are at a London crossroad.", "Paris": "A Paris crossroad.", "Cairo": "Cairo crossroad."},
-        "Road": {"London": "Walking along a London street.", "Paris": "Walking along a Paris street.", "Cairo": "Walking along a Cairo street."}
+        "Bridge": {
+            "London": "You are on London Bridge.",
+            "Paris": "You are on the Seine bridge.",
+            "Cairo": "Crossing the Nile bridge.",
+            "Prague": "Walking over Charles Bridge, statues lining the sides.",
+            "Venice": "Crossing the Rialto Bridge over the Grand Canal.",
+            "Tours": "Walking across Pont Wilson, connecting town districts."
+        },
+        "Inn": {
+            "Paris": "A modest inn for weary travelers.",
+            "Prague": "GoldenLane Inn, quaint and colorful.",
+            "Venice": "Sailors Inn, cozy for travelers from the lagoon.",
+            "Tours": "Pilgrims Inn, welcoming all travelers."
+        },
+        "Cathedral": {
+            "Paris": "You are inside the Paris Cathedral.",
+            "Prague": "St. Vitus Cathedral, soaring gothic spires and stained glass.",
+            "Venice": "St. Mark's Basilica, golden mosaics shimmering.",
+            "Tours": "St. Gatien Cathedral, illuminated by colorful stained glass."
+        }
     }
 
-    if tile in ["London", "Paris", "Cairo"]:
-        return descriptions.get(tile, {}).get(current_city, f"The heart of {current_city}, filled with life and activity")
-    else:
-        return descriptions.get(tile, {}).get(current_city, f"You are at {tile} in {current_city}.")
-
+    return descriptions.get(tile, {}).get(current_city, f"You are at {tile} in {current_city}.")
 
 def move(direction: str):
     global player_pos

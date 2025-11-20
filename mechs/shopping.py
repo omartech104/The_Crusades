@@ -25,7 +25,7 @@ shops = {
         "Armory": {
             "Longsword": {"price": 80, "desc": "Strong blade favored by knights.", "damage": 300, "stock": 2},
             "Battle Axe": {"price": 100, "desc": "Heavy axe for brutal combat.", "damage": 350, "stock": 2},
-            "Short Bow": {"price": 60, "desc": "Simple bow with limited range.", "damage": 200, "stock": 3},
+            "Long Bow": {"price": 60, "desc": "A powerful longbow favored by English archers", "damage": 200, "stock": 3},
             "Warhammer": {"price": 120, "desc": "Crush your foes with force.", "damage": 400, "stock": 1},
             "Dagger": {"price": 30, "desc": "Quick, light, and deadly.", "damage": 150, "stock": 4}
         }
@@ -65,50 +65,49 @@ shops = {
 
     "Prague": {
         "Market": {
-            "Medieval Bread": {"price": 5, "desc": "A loaf from Prague bakery.", "stock": 5},
-            "Ale": {"price": 15, "desc": "Locally brewed dark ale.", "stock": 8},
-            "Map Of Prague": {"price": 10, "desc": "The Map Of Prague.", "stock": 3},
-            "Amber Necklace": {"price": 100, "desc": "Necklace made from Bohemian amber.", "stock": 2}
+            "Medieval Bread": {"price": 5, "desc": "Freshly baked bread from a Bohemian bakery.", "stock": 5},
+            "Dark Ale": {"price": 15, "desc": "Locally brewed dark ale, popular with townsfolk.", "stock": 8},
+            "Map of Prague": {"price": 10, "desc": "Detailed map of the city streets and landmarks.", "stock": 3},
+            "Bohemian Amber Necklace": {"price": 100, "desc": "Necklace made from rare Bohemian amber.", "stock": 2}
         },
         "Armory": {
-            "Sword": {"price": 80, "desc": "Forged in Bohemia.", "damage": 300, "stock": 2},
-            "War Axe": {"price": 100, "desc": "Heavy axe favored by knights.", "damage": 350, "stock": 2},
-            "Throwing Knives": {"price": 90, "desc": "Set of sharp throwing knives.", "damage": 100, "stock": 3},
-            "Mace": {"price": 70, "desc": "A crushing weapon for close combat.", "damage": 270, "stock": 2},
+            "Zweihänder": {"price": 400, "desc": "Forged by local blacksmiths, sharp and reliable.", "damage": 480, "stock": 2},
+            "War Axe": {"price": 100, "desc": "Heavy axe favored by knights of Bohemia.", "damage": 350, "stock": 2},
+            "Throwing Knives": {"price": 90, "desc": "Set of sharp knives for precise attacks.", "damage": 100, "stock": 3},
+            "Morning Star": {"price": 300, "desc": "A spiky Mace designed for close combat.", "damage": 390, "stock": 2},
         }
     },
 
     "Venice": {
         "Market": {
-            "Glass Beads": {"price": 25, "desc": "Finely made Venetian glass.", "stock": 5},
-            "Wine": {"price": 20, "desc": "Local Venetian vintage.", "stock": 6},
-            "Map Of Venice": {"price": 12, "desc": "The Map Of Venice.", "stock": 3},
-            "Silk Cloth": {"price": 60, "desc": "Imported silk from the East.", "stock": 2}
+            "Venetian Glass Beads": {"price": 25, "desc": "Finely crafted glass beads from Murano.", "stock": 5},
+            "Venetian Wine": {"price": 20, "desc": "Local vintage, enjoyed by merchants.", "stock": 6},
+            "Map of Venice": {"price": 12, "desc": "Map detailing canals and major landmarks.", "stock": 3},
+            "Silk Cloth": {"price": 60, "desc": "Imported silk from the East, very luxurious.", "stock": 2}
         },
         "Armory": {
-            "Stiletto": {"price": 90, "desc": "Elegant Venetian blade.", "damage": 250, "stock": 2},
-            "Pike": {"price": 110, "desc": "Used by city guards.", "damage": 370, "stock": 2},
-            "Short Bow": {"price": 60, "desc": "Compact city bow.", "damage": 200, "stock": 3},
-            "Cinquedea": {"price": 35, "desc": "Triangular dagger.", "damage": 160, "stock": 4}
+            "Stiletto": {"price": 90, "desc": "Elegant Venetian dagger, perfect for duels.", "damage": 250, "stock": 2},
+            "Pike": {"price": 110, "desc": "Used by the city guards to protect Venice.", "damage": 370, "stock": 2},
+            "Short Bow": {"price": 60, "desc": "Compact bow suitable for urban defense.", "damage": 200, "stock": 3},
+            "Cinquedea": {"price": 35, "desc": "Triangular dagger popular in Renaissance Italy.", "damage": 160, "stock": 4}
         }
     },
 
     "Tours": {
         "Market": {
-            "Cheese": {"price": 15, "desc": "Local Tours cheese.", "stock": 5},
-            "Wine": {"price": 20, "desc": "Fine Loire Valley wine.", "stock": 6},
-            "Map Of Tours": {"price": 8, "desc": "The Map Of Tours.", "stock": 3},
-            "Book of Prayers": {"price": 50, "desc": "A local religious text.", "stock": 2}
+            "Goat Cheese": {"price": 15, "desc": "Local cheese from the Loire Valley.", "stock": 5},
+            "Loire Wine": {"price": 20, "desc": "Fine wine from surrounding vineyards.", "stock": 6},
+            "Map of Tours": {"price": 8, "desc": "Map highlighting the town and river crossings.", "stock": 3},
+            "Book of Prayers": {"price": 50, "desc": "A local religious text for pilgrims.", "stock": 2}
         },
         "Armory": {
-            "Arming Sword": {"price": 80, "desc": "Strong soldier’s blade.", "damage": 200, "stock": 2},
-            "Poleaxe": {"price": 100, "desc": "Light but powerful axe.", "damage": 250, "stock": 2},
-            "Throwing Spear": {"price": 90, "desc": "A balanced spear.", "damage": 180, "stock": 3},
-            "Warhammer": {"price": 120, "desc": "Crush your foes.", "damage": 400, "stock": 1},
+            "Arming Sword": {"price": 80, "desc": "Sturdy soldier’s blade for defense.", "damage": 200, "stock": 2},
+            "Poleaxe": {"price": 100, "desc": "Versatile axe used by knights.", "damage": 250, "stock": 2},
+            "Throwing Spear": {"price": 90, "desc": "Balanced spear for distance attacks.", "damage": 180, "stock": 3},
+            "Warhammer": {"price": 120, "desc": "Heavy weapon designed to crush armor.", "damage": 400, "stock": 1},
         }
     }
 }
-
 city_market_pos = {
     "London": (3, 5),
     "Paris": (3, 5),
