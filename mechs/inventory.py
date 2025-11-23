@@ -3,7 +3,7 @@ from rich.table import Table
 from rich.prompt import Prompt, IntPrompt, Confirm
 from rich.text import Text
 from rich.panel import Panel
-from mechs import fighting, shopping, traveling
+from mechs import fighting, shopping, traveling,player
 from .puzzles import cipher
 
 console = Console()
@@ -26,7 +26,7 @@ def view_inventory():
         console.print("[red]Your inventory is empty.[/red]")
         return
 
-    console.print(f"[bold cyan]HP:[/bold cyan] {fighting.player_hp}/1500")
+    console.print(f"[bold cyan]HP:[/bold cyan] {player.player_hp}/1500")
     console.print(f"[bold yellow]Gold:[/bold yellow] {shopping.player_gold}\n")
 
     table = Table(title="Your Items", title_style="bold cyan")
@@ -92,23 +92,23 @@ def use_item(item):
         for shop_type, shop_items in city.items():
             if item in shop_items:
                 if "bread" in item.lower():
-                    fighting.player_hp = min(fighting.player_hp + 230, 1500)
+                    player.player_hp = min(player.player_hp + 230, 1500)
                     inv.remove(item)
                     console.print(f"[green]You ate {item} and healed 230 HP![/green]")
                 elif "wine" in item.lower():
-                    fighting.player_hp = min(fighting.player_hp + 100, 1500)
+                    player.player_hp = min(player.player_hp + 100, 1500)
                     inv.remove(item)
                     console.print(f"[magenta]You drank {item} and restored 100 HP![/magenta]")
                 elif "Blessed Wine" in item:
-                    fighting.player_hp = min(fighting.player_hp + 750, 1500)
+                    player.player_hp = min(player.player_hp + 750, 1500)
                     inv.remove(item)
                     console.print(f"[bold magenta]You drank {item} and restored 750 HP![/bold magenta]")
                 elif "cheese" in item.lower():
-                    fighting.player_hp = min(fighting.player_hp + 150, 1500)
+                    player.player_hp = min(player.player_hp + 150, 1500)
                     inv.remove(item)
                     console.print(f"[green]You ate {item} and healed 150 HP![/green]")
                 elif "potion" in item.lower():
-                    fighting.player_hp = min(fighting.player_hp + 500, 1500)
+                    player.player_hp = min(player.player_hp + 500, 1500)
                     inv.remove(item)
                     console.print(f"[cyan]You used {item} and restored 500 HP![/cyan]")
                 elif "Map Of" in item:
@@ -116,6 +116,8 @@ def use_item(item):
                     for row in traveling.current_map:
                         console.print(" ".join(traveling.symbols[tile] for tile in row))
                     input("> Press Enter to continue...")
+                elif item in ["Padded Jack", "Aketon", "Brigandine", "Heater Shield"]:
+                    player.wear_armor(item)
                 else:
                     console.print(f"[yellow]You used {item}, but nothing happened...[/yellow]")
                 return

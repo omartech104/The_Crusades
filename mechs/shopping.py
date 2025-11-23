@@ -27,7 +27,8 @@ shops = {
             "Battle Axe": {"price": 100, "desc": "Heavy axe for brutal combat.", "damage": 350, "stock": 2},
             "Long Bow": {"price": 60, "desc": "A powerful longbow favored by English archers", "damage": 200, "stock": 3},
             "Warhammer": {"price": 120, "desc": "Crush your foes with force.", "damage": 400, "stock": 1},
-            "Dagger": {"price": 30, "desc": "Quick, light, and deadly.", "damage": 150, "stock": 4}
+            "Dagger": {"price": 30, "desc": "Quick, light, and deadly.", "damage": 150, "stock": 4},
+            "Padded Jack": {"price": 120, "desc": "Surprisingly good protection against cuts and some arrows.", "defense": 12, "stock": 2}
         }
     },
 
@@ -43,7 +44,8 @@ shops = {
             "Halberd": {"price": 110, "desc": "A polearm used by Parisian guards.", "damage": 370, "stock": 2},
             "Crossbow": {"price": 100, "desc": "Powerful but slow to reload.", "damage": 320, "stock": 2},
             "Mace": {"price": 70, "desc": "Crushing weapon popular among clergy knights.", "damage": 280, "stock": 3},
-            "Dirk": {"price": 40, "desc": "Slim blade used by assassins.", "damage": 180, "stock": 4}
+            "Dirk": {"price": 40, "desc": "Slim blade used by assassins.", "damage": 180, "stock": 4},
+            "Aketon": {"price": 130, "desc": "Provides good protection for it's matieral, Prefered by archers", "defense": 16, "stock": 2}
         }
     },
 
@@ -75,6 +77,7 @@ shops = {
             "War Axe": {"price": 100, "desc": "Heavy axe favored by knights of Bohemia.", "damage": 350, "stock": 2},
             "Throwing Knives": {"price": 90, "desc": "Set of sharp knives for precise attacks.", "damage": 100, "stock": 3},
             "Morning Star": {"price": 300, "desc": "A spiky Mace designed for close combat.", "damage": 390, "stock": 2},
+            "Studded Leather Armor": {"price": 230, "desc": "An armor that's used by Landsknechts", "defense":20, "stock": 3}
         }
     },
 
@@ -89,7 +92,8 @@ shops = {
             "Stiletto": {"price": 90, "desc": "Elegant Venetian dagger, perfect for duels.", "damage": 250, "stock": 2},
             "Pike": {"price": 110, "desc": "Used by the city guards to protect Venice.", "damage": 370, "stock": 2},
             "Short Bow": {"price": 60, "desc": "Compact bow suitable for urban defense.", "damage": 200, "stock": 3},
-            "Cinquedea": {"price": 35, "desc": "Triangular dagger popular in Renaissance Italy.", "damage": 160, "stock": 4}
+            "Cinquedea": {"price": 35, "desc": "Triangular dagger popular in Renaissance Italy.", "damage": 160, "stock": 4},
+            "Brigandine": {"price": 500, "desc": "Flexible armor with hidden metal plates.", "defense": 48, "stock": 3}
         }
     },
 
@@ -105,9 +109,11 @@ shops = {
             "Poleaxe": {"price": 100, "desc": "Versatile axe used by knights.", "damage": 250, "stock": 2},
             "Throwing Spear": {"price": 90, "desc": "Balanced spear for distance attacks.", "damage": 180, "stock": 3},
             "Warhammer": {"price": 120, "desc": "Heavy weapon designed to crush armor.", "damage": 400, "stock": 1},
-        }
+            "Heater Shield": {"price": 100, "desc": "A simple metal shield, preferd by infantry.", "defense": 14, "stock": 4}
+         }
     }
 }
+
 city_market_pos = {
     "London": (3, 5),
     "Paris": (3, 5),

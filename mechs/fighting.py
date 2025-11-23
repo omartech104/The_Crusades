@@ -1,12 +1,11 @@
 import random
 from rich.console import Console
-from mechs import traveling, shopping, inventory, badges
+from mechs import traveling, shopping, inventory, badges,player
 
 console = Console()
 
 # player stats
-player_hp = 1500
-player_dp = 50
+
 equipped_weapon = None
 
 # enemy spawn points
@@ -82,18 +81,17 @@ def equip_weapon():
         equipped_weapon = weapon
         player_dp = weapon_data[weapon]
         if badges.badges[0]["unlocked"]:
-            player_dp += 40
+            player.player_dp += 40
             console.print("[bold green]Badge bonus: +40 damage[/bold green]")
         console.print(f"\n[bold cyan]You equipped the {weapon}![/bold cyan] Damage set to [bold yellow]{player_dp}[/bold yellow]")
     else:
         console.print("[bold red]Invalid choice — you fight with your fists.[/bold red]")
         equipped_weapon = None
-        player_dp = 50
+        player.player_dp = 50
 
 # player attacks enemy
 def player_attack(enemy):
-    global player_dp
-    damage = player_dp
+    damage = enemy.dp - (enemy.dp * (player.player_df / 100))
     enemy.hp -= damage
     console.print(f"[bold green]You hit the {enemy.kind} with {equipped_weapon or 'fists'} for {damage} damage![/bold green]")
     if enemy.hp <= 0:
@@ -105,19 +103,19 @@ def player_attack(enemy):
 
 
 def player_heal():
-    global player_hp
+    #global player.player_hp
     inventory.view_inventory()
-    player_hp = min(player_hp, 1500)
-    console.print(f"[bold green]Your HP is now {player_hp}[/bold green]")
+    player.player_hp = min(player.player_hp, 1500)
+    console.print(f"[bold green]Your HP is now {player.player_hp}[/bold green]")
 
 
 # enemy attacks player
 def enemy_attack(enemy):
-    global player_hp
+    #global player.player_hp
     damage = enemy.dp
-    player_hp -= damage
-    console.print(f"[red]The {enemy.kind} attacked you for [bold red]{damage}[/bold red] damage![/red] [bold white]Current HP: {player_hp}[/bold white]")
-    if player_hp <= 0:
+    player.player_hp -= damage
+    console.print(f"[red]The {enemy.kind} attacked you for [bold red]{damage}[/bold red] damage![/red] [bold white]Current HP: {player.player_hp}[/bold white]")
+    if player.player_hp <= 0:
         console.print("[bold red]You were slain... Game Over.[/bold red]")
         return True
     return False
@@ -125,12 +123,12 @@ def enemy_attack(enemy):
 
 # combat loop
 def combat(enemy):
-    global player_hp
+    #global player.player_hp
     enemy.cutscene()
     equip_weapon()
 
-    while player_hp > 0 and enemy.hp > 0:
-        console.print(f"\n[bold blue]Your HP:[/bold blue] {player_hp} | [bold red]Enemy HP:[/bold red] {enemy.hp}")
+    while player.player_hp > 0 and enemy.hp > 0:
+        console.print(f"\n[bold blue]Your HP:[/bold blue] {player.player_hp} | [bold red]Enemy HP:[/bold red] {enemy.hp}")
         console.print("\n[bold red]1. Attack[/bold red] | [bold green]2. Heal[/bold green] | [bold yellow]3. Dodge[/bold yellow]")
         des = input("> ")
 
