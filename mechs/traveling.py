@@ -40,7 +40,6 @@ symbols = {
     "Bazaar": "B",
     "Tower": "W",      # W from toWer
     "Bridge": "∩",      # ⚠ clash with Cairo, so change:
-    "Bridge": "X"      # but Bazaar already B → make Bridge = "X"
 }
 
 # Tours landmarks
