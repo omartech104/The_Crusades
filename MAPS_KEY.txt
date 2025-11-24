@@ -1,0 +1,111 @@
+
+🌍 London Map
+▪ ▪ ▪ + ▪ ▪ ▪
+▪ A W ▪ ▪ ▪ X
+▪ ▪ + L + ▪ ▪
+▪ K ▪ + ▪ E ▪
+▪ ▪ ▪ + ▪ ▪ ▪
+▪ D ▪ ▪ ▪ H ▪
+▪ ▪ ▪ + ▪ ▪ ▪
+
+🌆 Paris Map
+▪ ▪ ▪ + ▪ ▪ ▪
+▪ A V ▪ ▪ ▪ T
+▪ ▪ + P + ▪ ▪
+▪ C ▪ + ▪ E ▪
+▪ ▪ ▪ + ▪ ▪ ▪
+▪ H ▪ ▪ ▪ I ▪
+▪ ▪ ▪ + ▪ ▪ ▪
+
+🐪 Cairo Map
+▪ ▪ ▪ + ▪ ▪ ▪
+▪ B ▪ ▪ ▪ A M
+▪ ▪ + R + ▪ ▪
+▪ Y ▪ + ▪ Z ▪
+▪ ▪ ▪ + ▪ ▪ ▪
+▪ O ▪ ▪ ▪ N ▪
+▪ ▪ ▪ + ▪ ▪ ▪
+
+🏰 Prague Map
+▪ ▪ ▪ + ▪ ▪ ▪
+▪ H ▪ ▪ ▪ E B
+▪ ▪ + G + ▪ ▪
+▪ K ▪ + ▪ V ▪
+▪ ▪ ▪ + ▪ ▪ ▪
+▪ P ▪ ▪ ▪ I ▪
+▪ ▪ ▪ + ▪ ▪ ▪
+
+🚤 Venice Map
+▪ ▪ ▪ + ▪ ▪ ▪
+▪ A ▪ ▪ ▪ E R
+▪ ▪ + V + ▪ ▪
+▪ D ▪ + ▪ S ▪
+▪ ▪ ▪ + ▪ ▪ ▪
+▪ M ▪ ▪ ▪ I ▪
+▪ ▪ ▪ + ▪ ▪ ▪
+
+🕯️ Tours Map
+▪ ▪ ▪ + ▪ ▪ ▪
+▪ T ▪ ▪ ▪ E X
+▪ ▪ + U + ▪ ▪
+▪ C ▪ + ▪ G ▪
+▪ ▪ ▪ + ▪ ▪ ▪
+▪ L ▪ ▪ ▪ I ▪
+▪ ▪ ▪ + ▪ ▪ ▪
+
+ROADS & STRUCTURES
+▪   Road
++   Crossroad
+X   Bridge
+W   Tower
+∩   (unused — old bridge symbol)
+
+CITIES
+L   London
+P   Paris
+R   Cairo
+G   Prague
+V   Venice
+U   Tours
+
+COMMON LOCATIONS
+A   Armory
+E   Market / Exchange
+B   Bazaar
+D   Docks
+H   Gatehouse
+K   Castle / Keep
+T   Tavern
+I   Inn
+C   Cathedral
+M   Mosque
+Y   Pyramids
+Z   Citadel
+O   Oasis
+N   Caravanserai
+
+TOURS LANDMARKS
+T   Clock Tower of Tours
+X   Pont Wilson
+C   Chateau de Tours
+G   St. Gatien Cathedral
+L   Loire Gate
+I   Pilgrims Inn
+
+PRAGUE LANDMARKS
+H   Old Town Hall
+B   Charles Bridge
+K   Hradčany Castle
+V   St. Vitus Cathedral
+P   Powder Gate
+I   GoldenLane Inn
+
+VENICE LANDMARKS
+A   Arsenale
+R   Rialto Bridge
+D   Doge Palace
+S   St. Mark’s Basilica
+M   Porta da Mare
+I   Sailors Inn
+
+
