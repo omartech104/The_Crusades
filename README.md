@@ -50,7 +50,7 @@ python main.py
 
 ## Maps & Map Key
 
-check the maps and the key maps here => [Maps and Map Keys](MAPS_KEYS.txt)
+check the maps and the key maps here => [Maps and Map Keys](MAPS_KEY.txt)
 
 ---
 
