@@ -26,8 +26,9 @@ def view_inventory():
         console.print("[red]Your inventory is empty.[/red]")
         return
 
-    console.print(f"[bold cyan]HP:[/bold cyan] {player.player_hp}/1500")
+    console.print(f"[bold green]HP:[/bold green] {player.player_hp}/1500")
     console.print(f"[bold yellow]Gold:[/bold yellow] {shopping.player_gold}\n")
+    console.print(f"[bold cyan]DF:[/bold cyan] {player.player_df}")
 
     table = Table(title="Your Items", title_style="bold cyan")
     table.add_column("#", justify="center", style="bright_white")
@@ -43,8 +44,8 @@ def view_inventory():
 
     console.print(table)
 
-    console.print("\n[yellow]Do you want to [bold]use[/bold] or [bold]sell[/bold] an item?[/yellow]")
-    choice = Prompt.ask(">", choices=["use", "sell"], default="use")
+    console.print("\n[yellow]Do you want to [bold]use[/bold], [bold]sell[/bold], [bold]unequip[/bold] or [bold]drop[/bold] an item?[/yellow]")
+    choice = Prompt.ask(">", choices=["use", "sell", "unequip", "drop"], default="use")
 
     item_choice = IntPrompt.ask("\nEnter item number", default=1)
     items_list = list(item_counts.keys())
@@ -59,6 +60,10 @@ def view_inventory():
         use_item(selected_item)
     elif choice == "sell":
         sell_item(selected_item)
+    elif choice == "unequip":
+        unequip_item(selected_item)
+    elif choice == "drop":
+        drop_item(selected_item)
 
 
 # 🔐 Quest content
@@ -188,4 +193,24 @@ def sell_item(item):
         f"[green]✅ You sold {quantity}x {item} for {total_price} gold![/green]\n"
         f"[bold yellow]💰 Remaining Gold: {shopping.player_gold}[/bold yellow]"
     )
+
+def unequip_item(item):
+    armor_df = {
+        "Padded Jack": 12,
+        "Aketon": 16,
+        "Studded Leather Armor": 20,
+        "Brigandine": 48,
+        "Heater Shield": 14
+    }
+ 
+    if item in armor_df:
+        # Apply DF
+        player.player_df -= armor_df[item]
+        console.print(f"[bold yellow]You unequipped {item}![/bold yellow] [yellow]Defense is reduced to {player.player_df}[/yellow]")
+
+def drop_item(item):
+    if item in shopping.inventory:
+        shopping.inventory.remove(item)
+    console.print(f"[cyan]Item dropped: {item}[/cyan]")
+
 
