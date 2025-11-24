@@ -56,9 +56,8 @@
 ROADS & STRUCTURES
 ▪   Road
 +   Crossroad
-X   Bridge
 W   Tower
-∩   (unused — old bridge symbol)
+∩   Bridge
 
 CITIES
 L   London

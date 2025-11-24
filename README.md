@@ -49,7 +49,7 @@ python main.py
 ---
 
 ## Maps & Map Key
-
+check the maps and the key maps here => [MAPS_KEYS.txt]
 ---
 
 ## 📁 Project Structure  
