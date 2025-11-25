@@ -204,7 +204,8 @@ while run:
                         break
 
                 if not quest_enemy_fought:
-                    defeated_enemy, looted_items = fighting.check_for_enemy()
+                    defeated_enemy=fighting.check_for_enemy()
+                    looted_items=fighting.check_for_enemy()
                     if defeated_enemy:
                         for q_name in quest.quests.keys():
                             quest.check_quest_progress(
