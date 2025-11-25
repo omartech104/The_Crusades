@@ -28,7 +28,6 @@ shops = {
             "Long Bow": {"price": 60, "desc": "A powerful longbow favored by English archers", "damage": 200, "stock": 3},
             "Warhammer": {"price": 120, "desc": "Crush your foes with force.", "damage": 400, "stock": 1},
             "Dagger": {"price": 30, "desc": "Quick, light, and deadly.", "damage": 150, "stock": 4},
-            "Padded Jack": {"price": 120, "desc": "Surprisingly good protection against cuts and some arrows.", "defense": 12, "stock": 2}
         }
     },
 
@@ -45,7 +44,6 @@ shops = {
             "Crossbow": {"price": 100, "desc": "Powerful but slow to reload.", "damage": 320, "stock": 2},
             "Mace": {"price": 70, "desc": "Crushing weapon popular among clergy knights.", "damage": 280, "stock": 3},
             "Dirk": {"price": 40, "desc": "Slim blade used by assassins.", "damage": 180, "stock": 4},
-            "Aketon": {"price": 130, "desc": "Provides good protection for it's matieral, Prefered by archers", "defense": 16, "stock": 2}
         }
     },
 
@@ -77,7 +75,6 @@ shops = {
             "War Axe": {"price": 100, "desc": "Heavy axe favored by knights of Bohemia.", "damage": 350, "stock": 2},
             "Throwing Knives": {"price": 90, "desc": "Set of sharp knives for precise attacks.", "damage": 100, "stock": 3},
             "Morning Star": {"price": 300, "desc": "A spiky Mace designed for close combat.", "damage": 390, "stock": 2},
-            "Studded Leather Armor": {"price": 230, "desc": "An armor that's used by Landsknechts", "defense":20, "stock": 3}
         }
     },
 
@@ -93,7 +90,6 @@ shops = {
             "Pike": {"price": 110, "desc": "Used by the city guards to protect Venice.", "damage": 370, "stock": 2},
             "Short Bow": {"price": 60, "desc": "Compact bow suitable for urban defense.", "damage": 200, "stock": 3},
             "Cinquedea": {"price": 35, "desc": "Triangular dagger popular in Renaissance Italy.", "damage": 160, "stock": 4},
-            "Brigandine": {"price": 500, "desc": "Flexible armor with hidden metal plates.", "defense": 48, "stock": 3}
         }
     },
 
@@ -112,6 +108,51 @@ shops = {
             "Heater Shield": {"price": 100, "desc": "A simple metal shield, preferd by infantry.", "defense": 14, "stock": 4}
          }
     }
+}
+
+shops["London"]["Clothing"] = {
+    "Woolen Tunic": {"price": 25, "desc": "Everyday English tunic worn by peasants.", "stock": 6},
+    "Gambeson Coat": {"price": 90, "desc": "Thick padded coat worn under armor.", "defense": 17, "stock": 3},
+    "English Hood": {"price": 10, "desc": "The classic medieval hood.", "stock": 8},
+    "Merchant's Coat": {"price": 60, "desc": "A fine coat worn by London merchants.", "stock": 2},
+    # Armor moved from Armory
+    "Padded Jack": {"price": 120, "desc": "Surprisingly good protection against cuts and some arrows.", "defense": 12, "stock": 2}
+}
+
+shops["Paris"]["Clothing"] = {
+    "Pourpoint": {"price": 70, "desc": "A tight quilted jacket fashionable in Paris.", "stock": 3},
+    "French Cloak": {"price": 40, "desc": "A stylish cloak worn by nobles.", "agility": 16,"stock": 2},
+    "Woolen Hose": {"price": 20, "desc": "Common legwear in medieval France.", "stock": 6},
+    "Silk Doublet": {"price": 120, "desc": "Luxury item worn by wealthy Parisians.", "stock": 1},
+    # Armor moved from Armory
+    "Aketon": {"price": 130, "desc": "Provides good protection for its material, preferred by archers.", "defense": 16, "stock": 2}
+}
+
+shops["Prague"]["Clothing"] = {
+    "Bohemian Tunic": {"price": 25, "desc": "Simple tunic worn by common Prague citizens.", "stock": 6},
+    "Fur-Lined Cloak": {"price": 80, "desc": "Warm winter cloak typical in Bohemia.", "stock": 3},
+    "Linen Undershirt": {"price": 10, "desc": "Basic medieval garment.", "stock": 10},
+    "Merchant Robe": {"price": 60, "desc": "Decorative robe worn by traders.", "stock": 2},
+    # Armor moved from Armory
+    "Studded Leather Armor": {"price": 230, "desc": "Armor used by Landsknechts.", "defense": 20, "stock": 3}
+}
+
+shops["Venice"]["Clothing"] = {
+    "Venetian Doublet": {"price": 90, "desc": "Typical Renaissance Italian doublet.", "stock": 3},
+    "Silk Hose": {"price": 40, "desc": "Fine hose worn by wealthy Venetians.", "stock": 4},
+    "Merchant's Robe": {"price": 70, "desc": "Robes worn by Venetian traders.", "stock": 2},
+    "Travel Cloak": {"price": 30, "desc": "Light cloak for navigating Venice’s canals.", "stock": 5},
+    # Armor moved from Armory
+    "Brigandine": {"price": 500, "desc": "Flexible armor with hidden metal plates.", "defense": 48, "stock": 3}
+}
+
+shops["Cairo"]["Clothing"] = {
+    # Clothes
+    "Galabiyya": {"price": 20, "desc": "Traditional Egyptian long robe worn by all classes.", "stock": 6},
+    "Turban": {"price": 15, "desc": "Light headwrap protecting from the sun.", "stock": 8},
+    "Mamluk Coat": {"price": 90, "desc": "Decorated coat worn by Mamluk soldiers.", "stock": 2},
+    "Silk Kaftan": {"price": 150, "desc": "Luxurious court garment.", "stock": 1},
+    # Armor (none historically common besides padded coats, already included)
 }
 
 city_market_pos = {

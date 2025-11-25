@@ -27,8 +27,11 @@ def view_inventory():
         return
 
     console.print(f"[bold green]HP:[/bold green] {player.player_hp}/1500")
-    console.print(f"[bold yellow]Gold:[/bold yellow] {shopping.player_gold}\n")
+    console.print(f"[bold yellow]Gold:[/bold yellow] {shopping.player_gold}")
     console.print(f"[bold cyan]DF:[/bold cyan] {player.player_df}")
+    console.print(f"[bold cyan]DP:[/bold cyan] {player.player_dp}")
+    console.print(f"[bold cyan]AG:[/bold cyan] {player.player_ag}")
+
 
     table = Table(title="Your Items", title_style="bold cyan")
     table.add_column("#", justify="center", style="bright_white")
@@ -121,8 +124,8 @@ def use_item(item):
                     for row in traveling.current_map:
                         console.print(" ".join(traveling.symbols[tile] for tile in row))
                     input("> Press Enter to continue...")
-                elif item in ["Padded Jack", "Aketon", "Brigandine", "Heater Shield"]:
-                    player.wear_armor(item)
+                elif item in shopping.shops[traveling.current_city]["Clothing"] or item in shopping.shops[traveling.current_city]["Armory"]:
+                    player.wear_clothes_and_armor(item)
                 else:
                     console.print(f"[yellow]You used {item}, but nothing happened...[/yellow]")
                 return

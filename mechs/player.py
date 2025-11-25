@@ -5,29 +5,40 @@ console = Console()
 player_hp = 1500
 player_dp = 50
 player_df = 0
+player_ag = 0
 
-def wear_armor(item):
-    global player_hp, player_df
-    import mechs.shopping
+def wear_clothes_and_armor(item):
+    """
+    Equip armor or weapon safely.
+    - Armor (Clothing or Armory with 'defense') updates player_df
+    - Weapon (Armory with 'damage') updates player_dp
+    """
+    from mechs import shopping, traveling
+    global player_df, player_dp
 
-    # Check if player has the armor in inventory
-    if item not in mechs.shopping.inventory:
-        console.print(f"[bold red]You don't have {item} in your inventory![/bold red]")
+    city_shop = shopping.shops[traveling.current_city]
+
+    clothes = city_shop.get("Clothing", {})
+    armory = city_shop.get("Armory", {})
+
+    if item in clothes:
+        if "defense" in clothes[item]:
+            player_df = clothes[item]["defense"]
+            console.print(f"[bold green]You equipped {item} as armor![/bold green] [cyan]DF = {player_df}[/cyan]")
+        else:
+            console.print(f"[bold red]{item} cannot be equipped as armor![/bold red]")
         return
 
-    # Armor dictionary: name -> DF
-    armor_df = {
-        "Padded Jack": 12,
-        "Aketon": 16,
-        "Studded Leather Armor": 20,
-        "Brigandine": 48,
-        "Heater Shield": 14
-    }
+    if item in armory:
+        if "defense" in armory[item]:
+            player_df = armory[item]["defense"]
+            console.print(f"[bold green]You equipped {item} as armor![/bold green] [cyan]DF = {player_df}[/cyan]")
+        elif "damage" in armory[item]:
+            player_dp = armory[item]["damage"]
+            console.print(f"[yellow]You equipped {item} as a weapon! Damage = {player_dp}[/yellow]")
+        else:
+            console.print(f"[bold red]{item} cannot be equipped![/bold red]")
+        return
 
-    if item in armor_df:
-        # Apply DF
-        player_df = armor_df[item]
-        console.print(f"[bold green]You equipped {item}![/bold green] [cyan]Defense set to {player_df}[/cyan]")
-    else:
-        console.print(f"[bold red]{item} cannot be worn as armor![/bold red]")
+    console.print(f"[bold red]{item} cannot be equipped as armor or weapon![/bold red]")
 

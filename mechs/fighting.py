@@ -44,7 +44,13 @@ class Enemy:
 
 # equip weapon system
 def equip_weapon():
+    """
+    Equip a weapon from the player's inventory (stored as strings).
+    Sets player_dp based on the weapon's damage from Armory.
+    """
     global player_dp, equipped_weapon
+    from mechs import shopping, player, badges
+
     inv = shopping.inventory
     shops = shopping.shops
 
@@ -52,7 +58,7 @@ def equip_weapon():
         console.print("[bold red]You have no weapons in your inventory![/bold red]")
         return
 
-    console.print("\n[bold yellow]Your Weapons:[/bold yellow]")
+    # Build a list of weapons in inventory by checking Armory
     weapon_list = []
     weapon_data = {}
     printed = set()
@@ -60,34 +66,43 @@ def equip_weapon():
     for item in inv:
         if item in printed:
             continue
+        # Search for weapon damage in all Armories
         for city in shops.values():
             armory = city.get("Armory", {})
-            if item in armory:
-                dmg = armory[item].get("damage", 50)
+            if item in armory and "damage" in armory[item]:
+                dmg = armory[item]["damage"]
                 weapon_list.append(item)
                 weapon_data[item] = dmg
                 printed.add(item)
                 console.print(f"[green]{len(weapon_list)}.[/green] {item} ([cyan]{dmg} dmg[/cyan])")
-                break  # ✅ stops after first match
+                break  # stop at first match
 
     if not weapon_list:
-        console.print("[bold red]You have no usable weapons (only items).[/bold red]")
+        console.print("[bold red]You have no usable weapons in your inventory.[/bold red]")
         return
 
+    # Ask player to choose a weapon
     choice = input("\nChoose a weapon to equip: ")
 
     if choice.isdigit() and 1 <= int(choice) <= len(weapon_list):
         weapon = weapon_list[int(choice) - 1]
         equipped_weapon = weapon
         player_dp = weapon_data[weapon]
+
+        # Badge bonus if unlocked
         if badges.badges[0]["unlocked"]:
-            player.player_dp += 40
+            player_dp += 40
             console.print("[bold green]Badge bonus: +40 damage[/bold green]")
+
         console.print(f"\n[bold cyan]You equipped the {weapon}![/bold cyan] Damage set to [bold yellow]{player_dp}[/bold yellow]")
+
+        # Start fight (optional)
+        # fighting.start(player_dp=player_dp, weapon=weapon)
+
     else:
         console.print("[bold red]Invalid choice — you fight with your fists.[/bold red]")
         equipped_weapon = None
-        player.player_dp = 50
+        player_dp = 50  # default unarmed damage
 
 # player attacks enemy
 def player_attack(enemy):

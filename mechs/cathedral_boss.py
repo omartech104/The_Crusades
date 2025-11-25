@@ -2,7 +2,7 @@ import random
 from rich.console import Console
 console = Console()
 
-from mechs import fighting, shopping, inventory
+from mechs import fighting, shopping, inventory, player
 from .puzzles import cipher
 
 # Boss stats
@@ -67,8 +67,8 @@ def fight_cathedral_boss():
 
     equip_weapon()
 
-    while boss_hp > 0 and fighting.player_hp > 0:
-        console.print(f"\nYour HP: [bold green]{fighting.player_hp}[/bold green] | Boss HP: [bold red]{boss_hp}[/bold red]")
+    while boss_hp > 0 and player.player_hp > 0:
+        console.print(f"\nYour HP: [bold green]{player.player_hp}[/bold green] | Boss HP: [bold red]{boss_hp}[/bold red]")
         console.print("[bold red]1.[/bold red] Attack  |  [bold yellow]2.[/bold yellow] Use Item  |  [bold blue]3.[/bold blue] Run")
         choice = input("> ").strip()
 
@@ -108,10 +108,10 @@ def fight_cathedral_boss():
 
         # 🩸 Boss counterattack
         if boss_hp > 0:
-            boss_damage = random.randint(*boss_attack)
-            fighting.player_hp -= boss_damage
+            boss_damage = round(random.randint(*boss_attack)-(random.randint(*boss_attack)*(player.player_df/100)))
+            player.player_hp -= boss_damage
             console.print(f"The [bold white]Guardian[/bold white] smashes you for [bold red]{boss_damage}[/bold red] damage!")
-            if fighting.player_hp <= 0:
+            if player.player_hp <= 0:
                 console.print("\n[bold red]You were slain by the Cathedral Guardian...[/bold red]")
                 defeated = False
                 return
