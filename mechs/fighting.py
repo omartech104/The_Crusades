@@ -24,11 +24,18 @@ enemy_spawns = {
         "Oasis": ["Bandit"],
         "Citadel": ["Templar"],
         "Bazaar": ["Thief"]
+    },
+    "Prague": {
+        "Powder Gate": ["Bandit"],
+        "Hradčany Castle": ["Templar"],
+        "Crossroad": ["Thief"]
+    },
+    "Venice": {
+        "Arsenale": ["Thief"],
+        "Doge Palace": ["Templar"],
+        "Rialto Bridge": ["Bandit"]
     }
 }
-
-# add your new cities here if needed
-# "Prague": {...}, "Venice": {...}, etc.
 
 
 # enemy class
@@ -135,6 +142,9 @@ def enemy_attack(enemy):
         return True
     return False
 
+def dodge_chance(agility):
+    return agility / (agility + 30)  # cap grows naturally
+
 
 # combat loop
 def combat(enemy):
@@ -160,7 +170,7 @@ def combat(enemy):
         elif des == "2":
             player_heal()
         elif des == "3":
-            if random.random() > 0.5:
+            if random.random() > dodge_chance(player.player_ag):
                 console.print("[bold green]You dodged successfully![/bold green]")
             else:
                 console.print("[bold red]Dodge failed![/bold red]")
