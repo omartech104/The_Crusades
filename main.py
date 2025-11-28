@@ -160,7 +160,7 @@ while run:
             input("> Press Enter...")
 
         elif action == "2":
-            city_center_pos = {"London": (2, 3), "Paris": (2, 3), "Cairo": (3, 2)}
+            city_center_pos = {"London": (2, 3), "Paris": (2, 3), "Cairo": (3, 2), "Prague": (2, 3), "Venice": (2, 3), "Tours": (2, 3)}
             traveling.player_pos = city_center_pos[traveling.current_city]
             console.print(f"[bold cyan]You're in the heart of {traveling.current_city}[/bold cyan]")
             input("> Press Enter...")
