@@ -2,7 +2,7 @@
 
 _A text-adventure game set in Medieval Europe_
 
-**👨‍💻 Authors:** [@omartech104](https://github.com/omartech104) & [@challenger467](https://github.com/challenger467)  
+**👨‍💻 Authors:** [@omartech104](https://github.com/omartech104) 
 **📦 Repository:** [The_Crusades](https://github.com/omartech104/The_Crusades)
 
 ---
