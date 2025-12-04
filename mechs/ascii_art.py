@@ -28,3 +28,4 @@ def welcome_screen():
     for item in menu:
         console.print(item)
 
+
