@@ -13,11 +13,9 @@ from mechs import (
     badges,
     fighting,
     inventory,
-    quest,
     shopping,
     traveling,
 )
-from mechs.quest import start_quest
 
 pltform = sys.platform
 
@@ -92,31 +90,19 @@ while run:
 
         NPC.check_for_npcs(traveling.current_city, traveling.get_current_tile())
 
-        # # Quest triggers
+        # --------------------------------------------------
+        # QUEST SYSTEM DISABLED (TRIGGERS)
+        # --------------------------------------------------
         # quest_triggers = [
         #     ("Paris", "Cathedral", "Lost Relic"),
         #     ("Cairo", "Bazaar", "Missing Ring"),
         #     ("London", "Docks", "Smuggled Goods"),
-        #     ("London", "Crossroad", "Crossroad Ambush"),
-        #     ("London", "Castle", "Castle Intruder"),
-        #     ("Paris", "Tavern", "Tavern Brawl"),
-        #     ("Paris", "Gatehouse", "Gatehouse Thief"),
-        #     ("Paris", "Cathedral", "Defender of the Faith"),
-        #     ("Cairo", "Oasis", "Oasis Raid"),
-        #     ("Cairo", "Citadel", "Citadel Intrigue"),
-        #     ("Cairo", "Bazaar", "Bazaar Pickpocket"),
-        #     ("London", "Crossroad", "Highway Robbery"),
-        #     ("London", "Docks", "Stolen Cargo"),
-        #     ("London", "Castle", "Knight’s Oath"),
-        #     ("Paris", "Tavern", "Drunken Raiders"),
-        #     ("Paris", "Gatehouse", "City Gate Break-in"),
-        #     ("Cairo", "Oasis", "Desert Justice")
         # ]
         #
         # for city, tile, quest_name in quest_triggers:
         #     if (traveling.current_city, traveling.get_current_tile()) == (city, tile):
         #         start_quest(quest_name)
-        #
+
         draw()
         console.print()
         draw()
@@ -135,34 +121,46 @@ while run:
             if destination in traveling.cities:
                 traveling.current_city = destination
 
-                # Update map and player position based on city
                 city_positions = {
                     "London": (traveling.london_map, (2, 3)),
                     "Paris": (traveling.paris_map, (2, 3)),
                     "Cairo": (traveling.cairo_map, (2, 3)),
                     "Prague": (traveling.prague_map, (2, 3)),
                     "Venice": (traveling.venice_map, (2, 3)),
-                    "Tours": (traveling.tours_map, (2, 3)),  # <-- add this line
+                    "Tours": (traveling.tours_map, (2, 3)),
                 }
                 traveling.current_map, traveling.player_pos = city_positions[destination]
 
-                console.print(f"[bold magenta]You have traveled to {destination}.[/bold magenta]")
+                console.print(
+                    f"[bold magenta]You have traveled to {destination}.[/bold magenta]"
+                )
                 view_map = console.input(
                     f"Do you want to view [bold yellow]{destination}[/bold yellow]'s map (y/n) "
                 )
                 if view_map.lower() == "y":
                     draw()
                     for row in traveling.current_map:
-                        console.print(" ".join(traveling.symbols[tile] for tile in row))
+                        console.print(
+                            " ".join(traveling.symbols[tile] for tile in row)
+                        )
                     draw()
             else:
                 console.print("[bold red]Invalid city.[/bold red]")
             input("> Press Enter...")
 
         elif action == "2":
-            city_center_pos = {"London": (2, 3), "Paris": (2, 3), "Cairo": (3, 2), "Prague": (2, 3), "Venice": (2, 3), "Tours": (2, 3)}
+            city_center_pos = {
+                "London": (2, 3),
+                "Paris": (2, 3),
+                "Cairo": (3, 2),
+                "Prague": (2, 3),
+                "Venice": (2, 3),
+                "Tours": (2, 3),
+            }
             traveling.player_pos = city_center_pos[traveling.current_city]
-            console.print(f"[bold cyan]You're in the heart of {traveling.current_city}[/bold cyan]")
+            console.print(
+                f"[bold cyan]You're in the heart of {traveling.current_city}[/bold cyan]"
+            )
             input("> Press Enter...")
 
         elif action == "3":
@@ -183,42 +181,56 @@ while run:
             if direction in ["N", "S", "E", "W"]:
                 result = traveling.move(direction)
                 console.print(result)
-                NPC.check_for_npcs(traveling.current_city, traveling.get_current_tile())
+                NPC.check_for_npcs(
+                    traveling.current_city, traveling.get_current_tile()
+                )
 
-                quest_enemy_fought = False
-                for q_name in quest.quests.keys():
-                    enemy_name = quest.trigger_quest_enemy(
-                        q_name, traveling.current_city, traveling.get_current_tile()
-                    )
-                    if enemy_name:
-                        enemy_obj = fighting.Enemy(enemy_name)
-                        defeated_enemy, looted_items = fighting.combat(enemy_obj)
-                        quest.check_quest_progress(
-                            q_name,
-                            traveling.current_city,
-                            traveling.get_current_tile(),
-                            defeated_enemy,
-                            looted_items,
-                        )
-                        quest_enemy_fought = True
-                        break
+                # --------------------------------------------------
+                # QUEST SYSTEM DISABLED (COMBAT & PROGRESS)
+                # --------------------------------------------------
+                # quest_enemy_fought = False
+                # for q_name in quest.quests.keys():
+                #     enemy_name = quest.trigger_quest_enemy(
+                #         q_name,
+                #         traveling.current_city,
+                #         traveling.get_current_tile(),
+                #     )
+                #     if enemy_name:
+                #         enemy_obj = fighting.Enemy(enemy_name)
+                #         defeated_enemy, looted_items = fighting.combat(enemy_obj)
+                #         quest.check_quest_progress(
+                #             q_name,
+                #             traveling.current_city,
+                #             traveling.get_current_tile(),
+                #             defeated_enemy,
+                #             looted_items,
+                #         )
+                #         quest_enemy_fought = True
+                #         break
+                #
+                # if not quest_enemy_fought:
+                #     defeated_enemy = fighting.check_for_enemy()
+                #     looted_items = fighting.check_for_enemy()
+                #     if defeated_enemy:
+                #         for q_name in quest.quests.keys():
+                #             quest.check_quest_progress(
+                #                 q_name,
+                #                 traveling.current_city,
+                #                 traveling.get_current_tile(),
+                #                 defeated_enemy,
+                #                 looted_items,
+                #             )
 
-                if not quest_enemy_fought:
-                    defeated_enemy=fighting.check_for_enemy()
-                    looted_items=fighting.check_for_enemy()
-                    if defeated_enemy:
-                        for q_name in quest.quests.keys():
-                            quest.check_quest_progress(
-                                q_name,
-                                traveling.current_city,
-                                traveling.get_current_tile(),
-                                defeated_enemy,
-                                looted_items,
-                            )
+                # --- NORMAL RANDOM COMBAT ONLY ---
+                enemy = fighting.check_for_enemy()
+                if enemy:
+                    fighting.combat(enemy)
 
             elif direction == "F":
                 traveling.fast_travel()
-                NPC.check_for_npcs(traveling.current_city, traveling.get_current_tile())
+                NPC.check_for_npcs(
+                    traveling.current_city, traveling.get_current_tile()
+                )
 
             else:
                 console.print("[bold red]Invalid direction.[/bold red]")
@@ -235,3 +247,4 @@ while run:
         elif action == "7":
             play = False
             menu = True
+

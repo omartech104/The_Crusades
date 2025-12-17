@@ -121,8 +121,7 @@ def use_item(item):
                     console.print(f"[cyan]You used {item} and restored 500 HP![/cyan]")
                 elif "Map Of" in item:
                     console.print(f"[bold cyan]Showing {item}...[/bold cyan]")
-                    for row in traveling.current_map:
-                        console.print(" ".join(traveling.symbols[tile] for tile in row))
+                    traveling.show_map_with_blink()
                     input("> Press Enter to continue...")
                 elif item in shopping.shops[traveling.current_city]["Clothing"] or item in shopping.shops[traveling.current_city]["Armory"]:
                     player.wear_clothes_and_armor(item)

@@ -205,6 +205,40 @@ cities = ["London", "Paris", "Cairo", "Prague", "Venice", "Tours"]
 current_map = london_map
 
 
+import time
+from rich.text import Text
+
+def render_map(blink_on=True):
+    console.clear()
+    console.rule(f"[bold cyan]{current_city} Map[/bold cyan]")
+
+    pr, pc = player_pos
+
+    for r, row in enumerate(current_map):
+        line = Text()
+        for c, tile in enumerate(row):
+            symbol = symbols.get(tile, "?")
+
+            if (r, c) == (pr, pc):
+                # PLAYER BLINK
+                if blink_on:
+                    line.append(f" {symbol} ", style="bold black on yellow")
+                else:
+                    line.append(f" {symbol} ", style="bold red")
+            else:
+                line.append(f" {symbol} ", style="white")
+        console.print(line)
+
+def show_map_with_blink(duration=3, speed=0.4):
+    blink = True
+    start = time.time()
+
+    while time.time() - start < duration:
+        render_map(blink_on=blink)
+        blink = not blink
+        time.sleep(speed)
+
+
 def get_location_name():
     row, col = player_pos
     tile = current_map[row][col]
